@@ -14,7 +14,7 @@ String Interpolation
 	-a number also works as it can be easily converted to a string
 	-a method which returns a string can also be called with string interpolation. eg: {{ getServerStatus() }}
 Property Binding 
-	-[property] = "data"
+	-[property] = "data" 
 	-dynamically bind some property with data
 	-to change property of html element,component,directive etc use property binding
 	-innerText property of an element is the one existing between {{}} 
