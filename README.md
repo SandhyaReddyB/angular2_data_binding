@@ -25,7 +25,46 @@ Property Binding
 Event Binding 
 	-(event) = "handler"
   -React to events
+  -<input type="text" (input)="onCreateServer($event)">
+		$event is the data emmitted with the event triggered
+		"input" is the DOM event which gets fired whenever user types every key stroke
+		
+		onCreateServer(event: Event) {
+			val = ((HTMLInputElement)event.target).value;
+			console.log(val);
+		}
 Two way Binding 
 	-[(ngModel)] = "property"
 	-combination of property binding and event binding
 	-To use ngModel, FormsModule has to be imported in AppModule
+
+Example:
+==========
+component.html
+---------------
+<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="addServer()">Add Server</button><br>
+<input type="text"[(ngModel)]="serverName">
+<p>{{onAddServer()}}</p>
+
+component.ts
+--------------
+export class AppserverComponent implements OnInit {
+
+  private serverName:string = '';
+  private allowNewServer:boolean = false;
+  private serverMsg = '';
+  constructor() {
+    setInterval(()=>{
+      this.allowNewServer = true;
+    },2000);
+  }
+
+  ngOnInit() {
+  }
+  addServer() {
+    this.serverMsg = 'Your server has been added: '+this.serverName;
+  }
+  onAddServer() {
+    return this.serverMsg;
+  }
+}
