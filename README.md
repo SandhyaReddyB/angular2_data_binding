@@ -13,6 +13,8 @@ String Interpolation
 	-string interpolation has to resolve to a string
 	-a number also works as it can be easily converted to a string
 	-a method which returns a string can also be called with string interpolation. eg: {{ getServerStatus() }}
+  -a ternary expression can also be written inside curly braces which resolves to a string
+  -{{'Server'}} is also valid
 Property Binding 
 	-[property] = "data" 
 	-dynamically bind some property with data
